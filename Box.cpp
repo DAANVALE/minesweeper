@@ -9,8 +9,8 @@ Box::Box(){
 }
 
 void Box::bombRandom() {
-	int random = rand() % 2;
-	if (random == 1) {
+	int random = rand() % 20;
+	if (random == 12) {
 		bomb = true;
 		nearbombs = 0;
 	}
