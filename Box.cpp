@@ -1,10 +1,9 @@
 #include "Box.h"
-#include "SFML/Graphics.hpp"	
 
 using namespace std;
 
 Box::Box(){
-	_box.setSize(sf::Vector2f(39,39));
+	visual_box.setSize(sf::Vector2f(39,39));
 	state = stateBox::cover;
 }
 
@@ -12,10 +11,9 @@ void Box::bombRandom() {
 	int random = rand() % 20;
 	if (random == 12) {
 		bomb = true;
+		state = stateBox::bomb;
 		nearbombs = 0;
 	}
-
-	setType();
 }
 
 void Box::setNearBomb() {
@@ -23,26 +21,36 @@ void Box::setNearBomb() {
 }
 
 void Box::setType() {
-	if (bomb) {
-		_box.setFillColor(sf::Color(0, 255, 255, 100));
+	if (nearbombs == 0) {
+		if (bomb) {
+			this->state = stateBox::bomb;
+		}
+		else {
+			this->state = stateBox::empty;
+		}
 	}
 	else {
-		_box.setFillColor(sf::Color(255, 255, 255, 100));
+		this->state == stateBox::nearBomb;
 	}
-}
 
-void Box::setPos(sf::Vector2f position) {
-	_box.setPosition(position);
+	setVisual(this->state);
 }
 
 void Box::setState(stateBox state) {
 	this->state = state;
 }
 
+void Box::setPos(sf::Vector2f position) {
+	visual_box.setPosition(position);
+}
+
 sf::RectangleShape Box::get_box() {
-	return _box;
+	setType();
+	setVisual(state);
+	return visual_box;
 }
 
 stateBox Box::getState() {
+	setType();
 	return state;
 }

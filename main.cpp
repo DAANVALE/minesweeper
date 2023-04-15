@@ -58,10 +58,10 @@ int main(void) {
 
         window.clear();
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                box[i][j].setPos(sf::Vector2f(40 * i, 40 * j));
-                tx[i][j].setPosition(sf::Vector2f(40 * i + 10, 40 * j + 10));
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            box[i][j].setPos(sf::Vector2f(40 * i, 40 * j));
+            tx[i][j].setPosition(sf::Vector2f(40 * i + 10, 40 * j + 10));
                 window.draw(box[i][j].get_box());
                 window.draw(tx[i][j]);
             }

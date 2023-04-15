@@ -142,12 +142,12 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StateMachine.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="VisualBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="VisualBox.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="minesweeper.rc" />

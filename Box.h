@@ -8,15 +8,16 @@
 #include <stdio.h>
 
 #include "StateMachine.cpp"
+#include "VisualBox.h"
+
 #include "SFML/Graphics.hpp"
 
-class Box
+class Box : public VisualBox
 {
 private:	
 	bool bomb = false;
 	int nearbombs = 0;
-	sf::RectangleShape _box;
-	stateBox state;
+
 public:
 	Box();
 	void setPos(sf::Vector2f position);
