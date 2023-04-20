@@ -24,6 +24,7 @@ public:
 	void setState(stateBox state);
 	void bombRandom();
 	void setNearBomb();
+	void discover();
 	void setType();
 
 	sf::RectangleShape get_box();

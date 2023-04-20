@@ -11,9 +11,12 @@ void Box::bombRandom() {
 	int random = rand() % 20;
 	if (random == 12) {
 		bomb = true;
-		state = stateBox::bomb;
 		nearbombs = 0;
 	}
+}
+
+void Box::discover() {
+	setType();
 }
 
 void Box::setNearBomb() {
@@ -21,18 +24,17 @@ void Box::setNearBomb() {
 }
 
 void Box::setType() {
-	if (nearbombs == 0) {
-		if (bomb) {
-			this->state = stateBox::bomb;
+		if (nearbombs == 0) {
+			if (bomb) {
+				this->state = stateBox::bomb;
+			}
+			else {
+				this->state = stateBox::empty;
+			}
 		}
 		else {
-			this->state = stateBox::empty;
+			this->state = stateBox::nearBomb;
 		}
-	}
-	else {
-		this->state == stateBox::nearBomb;
-	}
-
 	setVisual(this->state);
 }
 
@@ -45,12 +47,10 @@ void Box::setPos(sf::Vector2f position) {
 }
 
 sf::RectangleShape Box::get_box() {
-	setType();
 	setVisual(state);
 	return visual_box;
 }
 
 stateBox Box::getState() {
-	setType();
 	return state;
 }

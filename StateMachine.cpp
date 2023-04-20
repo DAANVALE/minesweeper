@@ -17,4 +17,10 @@ enum class stateGame {
 	win
 };
 
+enum class stateLevel {
+	easy,
+	medium,
+	hard
+};
+
 #endif // STATE_MACHINE

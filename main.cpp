@@ -4,11 +4,14 @@
 #include "SFML/Graphics.hpp"
 
 #include "Box.h"
+#include "Grid.h"
 
 int main(void) {
 
-    sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
-    Box box[10][10];
+    //sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
+    Grid grid(stateLevel::medium);
+    
+    /*Box box[10][10];
     sf::Font font;
     font.loadFromFile("Fonty.ttf");
 
@@ -17,6 +20,8 @@ int main(void) {
     srand(time(0));
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
+            box[i][j].setPos(sf::Vector2f(40 * i, 40 * j));
+            tx[i][j].setPosition(sf::Vector2f(40 * i + 10, 40 * j + 10));
             box[i][j].bombRandom();
             if (box[i][j].getBomb()) {
                 try {
@@ -60,14 +65,16 @@ int main(void) {
 
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
-            box[i][j].setPos(sf::Vector2f(40 * i, 40 * j));
-            tx[i][j].setPosition(sf::Vector2f(40 * i + 10, 40 * j + 10));
-                window.draw(box[i][j].get_box());
-                window.draw(tx[i][j]);
-            }
+            box[i][j].discover();
+            window.draw(box[i][j].get_box());
+            window.draw(tx[i][j]);
         }
 
-        window.display();
     }
+
+    window.display();
+
+    }
+    */
 	return 0;
 }
