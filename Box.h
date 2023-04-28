@@ -17,11 +17,15 @@ class Box : public VisualBox
 private:	
 	bool bomb = false;
 	int nearbombs = 0;
+	stateLevel type_level = stateLevel::easy;
+	int int_level;
 
 public:
 	Box();
+	~Box() {};
 	void setPos(sf::Vector2f position);
 	void setState(stateBox state);
+	void setLevel(stateLevel Type_level);
 	void bombRandom();
 	void setNearBomb();
 	void discover();

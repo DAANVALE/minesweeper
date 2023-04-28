@@ -13,7 +13,7 @@ protected:
 	stateBox state;
 public:
 	VisualBox();
-
+	~VisualBox() {};
 	void setVisual(stateBox state);
 	void setCover();
 	void setFlag();

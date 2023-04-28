@@ -8,10 +8,28 @@ Box::Box(){
 }
 
 void Box::bombRandom() {
-	int random = rand() % 20;
-	if (random == 12) {
+	int random = rand() % int_level;
+	if (random == 2) {
 		bomb = true;
 		nearbombs = 0;
+	}
+}
+
+void Box::setLevel(stateLevel type_level) {
+	switch (type_level)
+	{
+	case stateLevel::easy:
+		int_level = 20;
+		break;
+	case stateLevel::medium:
+		int_level = 15;
+		break;
+	case stateLevel::hard:
+		int_level = 3;
+		break;
+	default:
+		int_level = 20;
+		break;
 	}
 }
 
@@ -39,6 +57,7 @@ void Box::setType() {
 }
 
 void Box::setState(stateBox state) {
+	setVisual(state);
 	this->state = state;
 }
 

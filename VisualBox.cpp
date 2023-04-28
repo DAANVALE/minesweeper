@@ -44,7 +44,12 @@ void VisualBox::setEmpty() {
 }
 
 void VisualBox::setFlag(){
-
+	if (state == stateBox::cover) {
+		visual_box.setFillColor(sf::Color(250, 0, 0, 100));
+	}
+	else if (state == stateBox::flag){
+		state == stateBox::cover;
+	}
 }
 
 sf::RectangleShape VisualBox::getVisualBox() {
